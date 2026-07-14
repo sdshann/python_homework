@@ -6,7 +6,7 @@ try:
     with open("diary.txt", "a") as file:
         while True:
             if first_question:
-                user_answer = input("What happened today?")
+                user_answer = input("What happened today? ")
                 first_question = False
             else:
                 user_answer = input("What else? ")
@@ -20,7 +20,7 @@ except Exception as e:
    stack_trace = list()
    for trace in trace_back:
       stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
-   print(f"An exception occurred. Exception type: {type(e).__name__}")
+   print(f"An exception occurred: {type(e).__name__}")
    message = str(e)
    if message:
       print(f"Exception message: {message}")
