@@ -23,12 +23,12 @@ class Vector(Point):
     
 point1 = Point(5, 6)
 point2 = Point(1, 2)
-print(point1)
+print("Point str:", point1)
 print(point2.euclidian_distance(point1))
 
 vector1 = Vector(3, 4)
 vector2 = Vector(5, 6)
-print(vector1)
+print("Vector str(overridden):",vector1)
 print(vector2)
 print(vector1.__eq__(vector2))
-print(vector1 + vector2)
+print("Vector addition:", vector1 + vector2)

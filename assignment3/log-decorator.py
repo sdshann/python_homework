@@ -7,12 +7,16 @@ logger.addHandler(logging.FileHandler("./decorator.log","a"))
 
 def logger_decorator(func):
     def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
         logger.info(f"function: {func.__name__}")
         logger.info(f"positional parameters: {list(args) if args else 'none'}")
         logger.info(f"keyword parameters: {kwargs if kwargs else 'none'}")
-        logger.info(f"return: {result}")
-        return result
+        try:
+            result = func(*args, **kwargs)
+            logger.info(f"return: {result}")
+            return result
+        except Exception as e:
+            logger.error(f"Error occurred in function {func.__name__}: {e}")
+            raise
     return wrapper
 
 @logger_decorator
